@@ -1,6 +1,8 @@
 body{
     margin: 0;
     padding: 0;
+    font-family: arial,roboto;
+    
 }
 section{
     background-color: black;
@@ -13,7 +15,7 @@ section{
 }
 
 section::before{
-    background: linear-gradient(90deg, pink, white);
+    background: linear-gradient(90deg, purple, white);
     height: 240px;
     width: 240px;
     content: "";
@@ -23,7 +25,7 @@ section::before{
 }
 
 section::after{
-    background: linear-gradient(90deg, pink, white);
+    background: linear-gradient(90deg,white,purple );
     height: 240px;
     width: 240px;
     content: "";
@@ -34,21 +36,18 @@ section::after{
 
 
 .MASTER-CARD{
-    background-color:rgba(255,255,255,0.1);
-    height:250px;
+    background-color:transparent;
+    height:230px;
     width: 350px;
     position: relative;
-
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
 }
 .card-face{
     height: 100%;
     width: 100%;
-    transform-style: preserve-3d;
     position: absolute;
-    backdrop-filter: blur(10px);
-    transition: all .5s ease;
+    transition: transform 0.6s;
+    transform-style: preserve-3d                  ;
+    z-index: 20;
 }
 
 .card-face:hover{
@@ -60,6 +59,53 @@ section::after{
     width: 100%;
     position: absolute;
     backface-visibility: hidden;
+    background-color: rgba(255,255,255,0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 15px;
+    color: white;
+}
+
+.front-face-upper-region{
+    display: flex;
+    align-items: center;
+    width: 350px; 
+    margin-top: 25px;
+    margin-left: 25px;
+}
+
+.logo{
+    height: 32px;
+}
+
+.chip{
+    height: 30px;
+    border-radius:4px ;
+    position: absolute;
+    right: 25px;
+}
+
+.front-face-middle-region{
+    margin-top: 50px;
+    margin-left: 25px;
+}
+
+.number{
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.front-face-bottom-region{
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 25px;
+    margin-right: 25px;
+    align-items: center;
+}
+
+.date{
+    display: flex;
+    flex-direction: column;   
 }
 
 .back-face{
@@ -67,6 +113,59 @@ section::after{
     width: 100%;
     position: absolute;
     backface-visibility: hidden;
+    background-color: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    color: white;
+    display: flex;
+    flex-direction: column;
     transform: rotateY(180deg);
-    color: black;
+}
+
+.back-face-upper-region{
+    font-size: 8px;
+    margin-left: 35px;
+    margin-top: 15px;
+    display: block;
+    width: 100%;
+}
+
+.back-face-middle-region{
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signature-strip{
+    width: 70%;
+    height: 40px;
+    background-color: white;
+    z-index: 5;
+    border-radius: 10px;
+    background: repeating-linear-gradient(
+                
+                #fff,
+                #fff 3px,
+                #efefef 0px,
+                #efefef 9px);
+}
+
+.code{
+    background-color: lightgrey;
+    border-radius: 5px;
+    justify-content: end;
+    width: 40px;
+    display: flex;
+    height: 25px;
+    align-items: center;
+    margin-left: -8px;
+ 
+}
+
+.back-face-bottom-region{
+    font-size: 8px;
+    margin-top: 20px;
+    margin-left: 25px;
+    margin-right: 25px;
 }
